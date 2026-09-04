@@ -1,0 +1,62 @@
+{
+  "log": {
+    "loglevel": "warning"
+  },
+  "inbounds": [
+    {
+      "tag": "vless-tls-reality",
+      "port": 443,
+      "protocol": "vless",
+      "settings": {
+        "clients": [],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "reality",
+        "realitySettings": {
+          "show": false,
+          "dest": "yahoo.com:443",
+          "xver": 0,
+          "serverNames": [
+            "yahoo.com",
+            "www.yahoo.com"
+          ],
+          "privateKey": "",
+          "shortIds": [
+            ""
+          ]
+        }
+      }
+    },
+    {
+      "tag": "vless-ws",
+      "port": 2053,
+      "protocol": "vless",
+      "settings": {
+        "clients": [],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "none",
+        "wsSettings": {
+          "path": "/sub"
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "tag": "direct",
+      "settings": {
+        "domainStrategy": "UseIP"
+      }
+    },
+    {
+      "protocol": "blackhole",
+      "tag": "blocked"
+    }
+  ]
+}
