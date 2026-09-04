@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  pasarguard:
+    image: ghcr.io/pasarguard/panel:latest
+    restart: always
+    ports:
+      - "8000:8000"
+    environment:
+      - TZ=UTC
+    # پلتفرم ریلی به صورت خودکار دیتابیس را متصل می‌کند
